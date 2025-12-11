@@ -23,6 +23,7 @@
     "@mastra/loggers": "1.0.0-beta.3",
     "@mastra/memory": "1.0.0-beta.4",
     "@mastra/observability": "1.0.0-beta.4",
+    "vite-node": "^5.2.0",
     "zod": "^4"
   },
   "devDependencies": {
