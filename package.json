@@ -8,7 +8,7 @@
     "dev": "mastra dev",
     "build": "mastra build",
     "start": "mastra start",
-    "runscript": "vite-node tests/mastra/workflows.ts"
+    "runscript": "dotenv -e .env.local vite-node"
   },
   "keywords": [],
   "author": "",

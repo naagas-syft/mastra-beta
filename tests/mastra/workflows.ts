@@ -28,6 +28,9 @@ async function run() {
         input: {
           city: 'New York',
         },
+        groundTruth: {
+          activities: 'Visit the Statue of Liberty and the Empire State Building',
+        },
       },
     ],
     scorers: [scorer],

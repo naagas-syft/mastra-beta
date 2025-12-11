@@ -20,27 +20,31 @@ async function run() {
   });
 
   const result = await runEvals({
-    target: weatherAgent as any,
+    target: weatherAgent,
     data: [
       {
         input: "What's the weather in New York?",
+        groundTruth: {
+          output: 'The weather in New York is sunny with a temperature of 60 degrees Fahrenheit',
+        },
       },
+      {
+        input: "What's the weather in Berlin?",
+        groundTruth: {
+          output: 'The weather in Berlin is sunny with a temperature of 60 degrees Fahrenheit',
+        },
+      },
+      {
+        input: "What's the weather in Paris?",
+        groundTruth: {
+          output: 'The weather in Paris is sunny with a temperature of 60 degrees Fahrenheit',
+        },
+      },      
     ],
     scorers: [scorer],
   })
-
-  console.log(result);
-
   return result;
 }
-
-
-
-
-
-
-
-
 
 run().then((result) => {
   console.log(result);
