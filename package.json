@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "dotenv -e .env.local vitest --",
     "dev": "mastra dev",
     "build": "mastra build",
-    "start": "mastra start"
+    "start": "mastra start",
+    "runscript": "vite-node tests/mastra/workflows.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,16 +20,20 @@
   "dependencies": {
     "@mastra/core": "1.0.0-beta.11",
     "@mastra/evals": "1.0.0-beta.2",
+    "@mastra/langfuse": "1.0.0-beta.4",
     "@mastra/libsql": "1.0.0-beta.7",
     "@mastra/loggers": "1.0.0-beta.3",
     "@mastra/memory": "1.0.0-beta.4",
     "@mastra/observability": "1.0.0-beta.4",
-    "vite-node": "^5.2.0",
     "zod": "^4"
   },
   "devDependencies": {
     "@types/node": "^25.0.0",
+    "dotenv": "^17.2.3",
+    "dotenv-cli": "^11.0.0",
     "mastra": "1.0.0-beta.9",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite-node": "^5.2.0",
+    "vitest": "^4.0.15"
   }
 }

@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import { weatherAgent } from './agents/weather-agent';
 import { completenessScorer, toolCallAppropriatenessScorer, translationScorer } from './scorers/weather-scorer';
 import { weatherWorkflow } from './workflows/weather-workflow';
+import { LangfuseExporter } from '@mastra/langfuse';
 
 // Use absolute path for the database so it's consistent across all entry points
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -32,7 +33,12 @@ export const mastra = new Mastra({
         sampling: {
           type: SamplingStrategyType.ALWAYS,
         },
-        exporters:[new DefaultExporter()]
+        exporters:[new DefaultExporter(), new LangfuseExporter({
+          publicKey: process.env.LANGFUSE_PUBLIC_KEY!,
+          secretKey: process.env.LANGFUSE_SECRET_KEY!,
+          baseUrl: process.env.LANGFUSE_BASE_URL!,
+          realtime: true 
+        })]
       }
     }
   }),
